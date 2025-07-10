@@ -1,0 +1,10 @@
+{
+    "items": [
+        {"key": "slot", "value": "Slot"},
+        {"key": "exists", "value": "Existant"},
+        {"key": "empty", "value": "Vide"},
+        {"key": "load", "value": "Charger"},
+        {"key": "save", "value": "Sauvegarder"},
+        {"key": "delete", "value": "Supprimer"}
+    ]
+}

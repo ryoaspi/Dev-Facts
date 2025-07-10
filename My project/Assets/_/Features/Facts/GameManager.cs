@@ -13,6 +13,7 @@ namespace TheFundation.Runtime
 
         void Awake()
         {
+            LocalizationManager.m_Instance.LoadLanguage("en");
             FactSaveSystem.LoadFromFile(m_gameFacts);
         }
 

@@ -1,0 +1,7 @@
+{
+    "items": [
+        {"key": "menu.start", "value": "Star"},
+        {"key": "menu.exit", "value": "Exit"},
+        {"key": "dialog.welcome", "value": "Welcome to the game!"}
+    ]
+}
