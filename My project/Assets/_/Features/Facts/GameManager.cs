@@ -26,14 +26,24 @@ namespace TheFundation.Runtime
         
         #region Utils
 
-        public void SaveGameToFile()
+        public static void SaveGameToSlot(int slot)
         {
-            FactSaveSystem.SaveToFile(m_gameFacts);
+            FactSaveSystem.SaveToSlot(m_gameFacts, slot);
         }
 
-        public void LoadGameFromFile()
+        public static void LoadGameFromSlot(int slot)
         {
-            FactSaveSystem.LoadFromFile(m_gameFacts);
+            FactSaveSystem.LoadFromSlot(m_gameFacts, slot);
+        }
+
+        public static void DeleteSaveSlot(int slot)
+        {
+            FactSaveSystem.DeleteSlot(slot);
+        }
+
+        public static bool HasSaveInSlot(int slot)
+        {
+            return FactSaveSystem.SlotExist(slot);
         }
         #endregion
         

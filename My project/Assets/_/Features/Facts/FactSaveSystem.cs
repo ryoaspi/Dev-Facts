@@ -23,6 +23,47 @@ namespace TheFundation.Runtime
     {
         #region Utils
 
+        private static string GetSlotFilePath(int slot)
+        {
+            return Path.Combine(Application.persistentDataPath, $"slot_{slot}.json");
+        }
+
+        public static void SaveToSlot(FactDictionary factDictionary, int slot)
+        {
+            string json = SaveToJson(factDictionary);
+            string path = GetSlotFilePath(slot);
+            File.WriteAllText(path, json);
+        }
+
+        public static void LoadFromSlot(FactDictionary factDictionary, int slot)
+        {
+            string path = GetSlotFilePath(slot);
+            if (!File.Exists(path)) return;
+            string json = File.ReadAllText(path);
+            LoadFromJson(factDictionary, json);
+        }
+
+        public static bool SlotExist(int slot)
+        {
+            return File.Exists(GetSlotFilePath(slot));
+        }
+        
+        public static void DeleteSlot(int slot)
+        {
+            string path = GetSlotFilePath(slot);
+            if (File.Exists(path)) File.Delete(path);
+        }
+
+        public static List<int> GetAvailableSlots(int maxSlots = 10)
+        {
+            List<int> existingSlots = new();
+            for (int i = 0; i < maxSlots; i++)
+            {
+                if (SlotExist(i)) existingSlots.Add(i);
+            }
+            return existingSlots;
+        }
+
         public static string SaveToJson(FactDictionary factsDictionary)
         {
             List<SerializableFact> serializableFacts = new();
