@@ -1,21 +1,40 @@
-using UnityEngine;
-
 namespace TheFundation.Runtime
 {
     public class GameManager
     {
         #region Publics
 
-        public static FactDictionary m_gameFacts
+        public static FactDictionary m_gameFacts = new();
+        
+        #endregion
+        
+        
+        #region Api Unity
+
+        void Awake()
         {
-            get
-            {
-                if (_gameFact != null) return _gameFact;
-                _gameFact = new FactDictionary();
-                return _gameFact;
-            }
+            FactSaveSystem.LoadFromFile(m_gameFacts);
+        }
+
+        void OnApplicationQuit()
+        {
+            FactSaveSystem.SaveToFile(m_gameFacts);
         }
         
+        #endregion
+        
+        
+        #region Utils
+
+        public void SaveGameToFile()
+        {
+            FactSaveSystem.SaveToFile(m_gameFacts);
+        }
+
+        public void LoadGameFromFile()
+        {
+            FactSaveSystem.LoadFromFile(m_gameFacts);
+        }
         #endregion
         
         

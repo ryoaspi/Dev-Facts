@@ -21,6 +21,18 @@ namespace TheFundation.Runtime
         
         
         #region Utils
+
+        public bool TryGetFact<T>(string key, out T value)
+        {
+            if (_facts.TryGetValue(key, out var fact) && fact is Facts<T> typedFact)
+            {
+                value = typedFact.Value;
+                return true;
+            }
+            
+            value = default;
+            return false;
+        }
         
         public bool FactExist<T>(string key, out T value)
         { 

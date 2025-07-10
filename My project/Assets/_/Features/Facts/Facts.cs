@@ -18,7 +18,10 @@ namespace TheFundation.Runtime.Data
 
         public void SetObjectValue(object value)
         {
-            throw new NotImplementedException();
+            if (value is T castedValue)
+                Value = castedValue;
+            else
+                throw new ArgumentException($"Cannot cast {value.GetType()} to {typeof(T)}", nameof(value));
         }
         
         public bool IsPersistent { get; set; }
