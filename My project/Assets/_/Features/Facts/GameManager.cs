@@ -16,6 +16,11 @@ namespace TheFundation.Runtime
             }
         }
         
+        #endregion
+        
+        
+        #region Private And Protected
+        
         private static FactDictionary _gameFact;
         
         #endregion

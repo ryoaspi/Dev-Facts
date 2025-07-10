@@ -4,15 +4,26 @@ using TheFundation.Runtime.Data;
 
 namespace TheFundation.Runtime
 {
-    public class FactDictionary : FBehaviour
+    public class FactDictionary
     {
-        public Dictionary<string, IFact> AllFacts => _facts;
-        private Dictionary<string, IFact> _facts;
         
-        #region Main API
+        #region Publics
+        
+        public Dictionary<string, IFact> m_AllFacts => _facts;
+        
+        public enum FactPersistence
+        {
+            Normal,
+            Persistent
+        }
+        
+        #endregion
+        
+        
+        #region Utils
         
         public bool FactExist<T>(string key, out T value)
-        {
+        { 
             if (_facts.TryGetValue(key, out var fact) && fact is Facts<T> typedFact)
             {
                 value = typedFact.Value;
@@ -22,16 +33,16 @@ namespace TheFundation.Runtime
             value = default;
             return false;
         }
-
-        public void RemoveFact<T>(string key)
+        
+        public void RemoveFact(string key)
         {
-            
+            _facts.Remove(key);
         }
 
         public T GetFact<T>(string key)
         {
-            if (!_facts.TryGetValue(key, out var fact)) throw new KeyNotFoundException("No Fact with key " + key + " found");
-            if (fact is Facts<T> typedFact) throw new InvalidCastException("Fact exists but with the wrong type");
+            if (!_facts.TryGetValue(key, out var fact)) throw new KeyNotFoundException("No Fact");
+            if (fact is not Facts<T> typedFact) throw new InvalidCastException("Fact is not of type T");
             
             return typedFact.Value;
         }
@@ -40,14 +51,14 @@ namespace TheFundation.Runtime
         {
             if (_facts.TryGetValue(key, out var existingFact))
             {
-                if (existingFact is Facts<T> typedfact)
+                if (existingFact is Facts<T> typedFact)
                 {
-                    typedfact.Value = value;
-                    typedfact.IsPersistent = persistence == FactPersistence.Persistent;
+                    typedFact.Value = value;
+                    typedFact.IsPersistent = persistence == FactPersistence.Persistent;
                 }
                 else
                 {
-                    throw new InvalidCastException(" Fact exists but with the wrong type");
+                    throw new InvalidCastException("Fact exist but with the wrong type");
                 }
             }
             else
@@ -57,7 +68,14 @@ namespace TheFundation.Runtime
             }
         }
         
+        #endregion
+        
+        
+        #region Private And Protected
+        
+        private Dictionary<string, IFact> _facts = new();
         
         #endregion
+        
     }
 }

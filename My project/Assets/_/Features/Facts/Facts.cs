@@ -22,5 +22,7 @@ namespace TheFundation.Runtime.Data
         }
         
         public bool IsPersistent { get; set; }
+
+
     }
 }

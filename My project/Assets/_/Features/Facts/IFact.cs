@@ -2,10 +2,10 @@
 {
     public interface IFact
     {
-        private void TryGetValue()
-        {
-            
-        }
+        object GetObjectValue();
+        void SetObjectValue(object value);
+        bool IsPersistent { get; set; }
+        
     }
 }
 
