@@ -1,7 +1,10 @@
 {
     "items": [
-        {"key": "menu.start", "value": "Star"},
-        {"key": "menu.exit", "value": "Exit"},
-        {"key": "dialog.welcome", "value": "Welcome to the game!"}
+        {"key": "slot", "value": "Slot"},
+        {"key": "exists", "value": "Exist"},
+        {"key": "empty", "value": "Empty"},
+        {"key": "load", "value": "Load"},
+        {"key": "save", "value": "Save"},
+        {"key": "delete", "value": "Delete"}
     ]
 }
