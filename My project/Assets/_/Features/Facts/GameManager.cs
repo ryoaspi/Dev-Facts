@@ -1,6 +1,8 @@
+using UnityEngine;
+
 namespace TheFundation.Runtime
 {
-    public class GameManager
+    public class GameManager : MonoBehaviour
     {
         #region Publics
 

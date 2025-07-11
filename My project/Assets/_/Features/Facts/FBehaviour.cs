@@ -4,6 +4,8 @@ namespace TheFundation.Runtime
 {
     public class FBehaviour : MonoBehaviour
     {
+        
+        // FACTS
         protected bool HasFact<T>(string key, out T value)
         {
             return GameManager.m_gameFacts.FactExist(key, out value);
@@ -23,6 +25,44 @@ namespace TheFundation.Runtime
         protected void RemoveFact(string key)
         {
             GameManager.m_gameFacts.RemoveFact(key);
+        }
+        
+        
+        // SAVE SYSTEM
+        protected void SaveToSlot(int slot)
+        {
+            GameManager.SaveGameToSlot(slot);
+        }
+
+        protected void LoadFromSlot(int slot)
+        {
+            GameManager.LoadGameFromSlot(slot);
+        }
+
+        protected void DeleteSlot(int slot)
+        {
+            GameManager.DeleteSaveSlot(slot);
+        }
+
+        protected void SlotExist(int slot)
+        {
+            GameManager.HasSaveInSlot(slot);
+        }
+        
+        // Localization
+        protected void SetLanguage(string language)
+        {
+            LocalizationManager.m_Instance.LoadLanguage(language);
+        }
+
+        protected string GetCurrentLanguage()
+        {
+            return LocalizationManager.m_Instance.CurrentLanguage;
+        }
+
+        protected string GetLocalizedText(string key)
+        {
+            return LocalizationManager.m_Instance.GetText(key);
         }
     }
 }
