@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1924459307094327471}
   - component: {fileID: 5143055799065953256}
   - component: {fileID: 4587005614802189007}
-  - component: {fileID: 1719620254686696708}
+  - component: {fileID: 1272819350820754925}
   m_Layer: 5
   m_Name: SlotButton
   m_TagString: Untagged
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5143055799065953256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   _loadButton: {fileID: 7333168186989083695}
   _saveButton: {fileID: 4994822583521733525}
   _deleteButton: {fileID: 8727820443379285016}
---- !u!114 &1719620254686696708
+--- !u!114 &1272819350820754925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 12732684275856924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -1111,4 +1111,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c502a6e87ccee48a42f2828d2e68ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizationKey: title
+  _localizationKey: slot

@@ -26,6 +26,11 @@ namespace TheFundation.Runtime
         {
             GameManager.m_gameFacts.RemoveFact(key);
         }
+
+        protected bool TryGetFact<T>(string key, out T value)
+        {
+            return GameManager.m_gameFacts.TryGetFact(key, out value);
+        }
         
         
         // SAVE SYSTEM

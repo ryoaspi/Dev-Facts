@@ -12,7 +12,14 @@ namespace TheFundation.Runtime
         private void Awake()
         {
             _text = GetComponent<TMP_Text>();
-            LocalizationManager.m_Instance.OnLanguageChanged += UpdateText;
+            if (LocalizationManager.m_Instance != null)
+            {
+                LocalizationManager.m_Instance.OnLanguageChanged += UpdateText;
+            }
+            else
+            {
+                Debug.LogWarning("Localization.m_Instance is null dans LocalizedText.Awake()");
+            }
         }
         
         private void OnDestroy()
