@@ -1,6 +1,6 @@
 {
     "items": [
-        {"key": "slot", "value": "Slot"},
+        {"key": "slot", "value": "slot {0} : {1}"},
         {"key": "exists", "value": "Existant"},
         {"key": "empty", "value": "Vide"},
         {"key": "load", "value": "Charger"},

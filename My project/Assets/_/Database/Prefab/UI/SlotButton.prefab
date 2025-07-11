@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1924459307094327471}
   - component: {fileID: 5143055799065953256}
   - component: {fileID: 4587005614802189007}
-  - component: {fileID: 1272819350820754925}
+  - component: {fileID: 1076664951542272614}
+  - component: {fileID: 8590006832379663876}
   m_Layer: 5
   m_Name: SlotButton
   m_TagString: Untagged
@@ -123,7 +124,7 @@ MonoBehaviour:
   _loadButton: {fileID: 7333168186989083695}
   _saveButton: {fileID: 4994822583521733525}
   _deleteButton: {fileID: 8727820443379285016}
---- !u!114 &1272819350820754925
+--- !u!114 &1076664951542272614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,6 +150,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8590006832379663876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12732684275856924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &393574920753556237
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +584,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8466451944374875843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4664785427717073810, guid: e6c08f0406215ba43bcd09cbec1dd0c3, type: 3}
+        m_TargetAssemblyTypeName: TheFundation.Runtime.SaveLoadUI, TheFundation.Runtime
+        m_MethodName: OnDeleteSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5655804602634793858
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +867,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3285352376593443757}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4664785427717073810, guid: e6c08f0406215ba43bcd09cbec1dd0c3, type: 3}
+        m_TargetAssemblyTypeName: TheFundation.Runtime.SaveLoadUI, TheFundation.Runtime
+        m_MethodName: OnSaveSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6784740530522268908
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +1000,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2400988693404133041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4664785427717073810, guid: e6c08f0406215ba43bcd09cbec1dd0c3, type: 3}
+        m_TargetAssemblyTypeName: TheFundation.Runtime.SaveLoadUI, TheFundation.Runtime
+        m_MethodName: OnLoadSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8821831208387331329
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +1024,6 @@ GameObject:
   - component: {fileID: 4992402153751561603}
   - component: {fileID: 5132053489551883102}
   - component: {fileID: 4348240087757990535}
-  - component: {fileID: 8180441703173034362}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -1028,7 +1078,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Slot 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1055,8 +1105,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1099,16 +1149,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8180441703173034362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821831208387331329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c502a6e87ccee48a42f2828d2e68ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _localizationKey: slot

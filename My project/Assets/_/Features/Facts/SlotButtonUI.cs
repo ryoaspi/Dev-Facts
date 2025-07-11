@@ -46,9 +46,19 @@ namespace TheFundation.Runtime
         {
             bool exists = GameManager.HasSaveInSlot(_slotIndex);
             
-            string slotText = LocalizationManager.m_Instance.GetText("slot");
+            // string slotText = LocalizationManager.m_Instance.GetText("slot");
             string existsText = LocalizationManager.m_Instance.GetText(exists ? "exists" : "empty");
-            _slotLabel.text = $"{slotText} {_slotIndex} : {existsText}";
+            
+            var localized = _slotLabel.GetComponent<LocalizedText>();
+            if (localized != null)
+            {
+                localized.SetKey("slot_exists");
+                localized.SetFormattedText(_slotIndex +1 , existsText);
+            }
+            else
+            {
+                _slotLabel.text = $"Slot {_slotIndex + 1} : {existsText}";
+            }
             
             _loadButton.GetComponentInChildren<TMP_Text>().text = LocalizationManager.m_Instance.GetText("load");
             _saveButton.GetComponentInChildren<TMP_Text>().text = LocalizationManager.m_Instance.GetText("save");
@@ -56,6 +66,8 @@ namespace TheFundation.Runtime
             
             _loadButton.interactable = exists;
             _deleteButton.interactable = exists;
+            
+            Debug.Log($"Slot {_slotIndex +1 } : {exists}");
             
         }
         

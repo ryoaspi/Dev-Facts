@@ -19,6 +19,17 @@ namespace TheFundation.Runtime
         public List<SerializableFact> Facts;
     }
 
+    [Serializable]
+    public class PrimitiveWrapper<T>
+    {
+        public T value;
+
+        public PrimitiveWrapper(T val)
+        {
+            value = val;
+        }
+    }
+
     public static class FactSaveSystem
     {
         #region Utils
@@ -70,41 +81,75 @@ namespace TheFundation.Runtime
 
             foreach (var pair in factsDictionary.m_AllFacts)
             {
-                if (pair.Value.IsPersistent)
-                {
-                    object value = pair.Value.GetObjectValue();
-                    string jsonValue = JsonUtility.ToJson(value);
-                    string typeName = value.GetType().AssemblyQualifiedName;
+                if (!pair.Value.IsPersistent) continue;
+                
+                object value = pair.Value.GetObjectValue();
+                Type valueType = value.GetType();
 
-                    serializableFacts.Add(new SerializableFact
-                    {
-                        key = pair.Key,
-                        TypeName = typeName,
-                        JsonValue = jsonValue
-                    });
+                string jsonValue;
+
+                if (valueType.IsPrimitive || value is string)
+                {
+                    Type wrapperType = typeof(PrimitiveWrapper<>).MakeGenericType(valueType);
+                    object wrapper = Activator.CreateInstance(wrapperType, value);
+                    jsonValue = JsonUtility.ToJson(wrapper);
                 }
+
+                else
+                {
+                    jsonValue = JsonUtility.ToJson(value);
+                }
+                
+                serializableFacts.Add(new SerializableFact
+                {
+                    key = pair.Key,
+                    TypeName = valueType.FullName,
+                    JsonValue = jsonValue
+                });
+                
             }
 
-            SerializationWrapper wrapper = new() { Facts = serializableFacts };
-            return JsonUtility.ToJson(wrapper);
+            SerializationWrapper wrapperObj = new() { Facts = serializableFacts };
+            return JsonUtility.ToJson(wrapperObj);
         }
 
         public static void LoadFromJson(FactDictionary factsDictionary, string json)
         {
             if (string.IsNullOrEmpty(json)) return;
+            
+            
+            
             SerializationWrapper wrapper = JsonUtility.FromJson<SerializationWrapper>(json);
-            if (wrapper == null || wrapper.Facts == null) return;
+            if (wrapper?.Facts== null) return;
 
             foreach (var sFact in wrapper.Facts)
             {
                 Type type = Type.GetType(sFact.TypeName);
-                if (type == null) continue;
+                if (type == null)
+                {
+                    continue;
+                }
 
-                object value = JsonUtility.FromJson(sFact.JsonValue, type);
+                object value;
+
+                if (type.IsPrimitive || type == typeof(string))
+                {
+                    Type wrapperType = typeof(PrimitiveWrapper<>).MakeGenericType(type);
+                    object wrapperInstance = JsonUtility.FromJson(sFact.JsonValue, wrapperType);
+                    value = wrapperType.GetField("value").GetValue(wrapperInstance);
+                }
+
+                else
+                {
+                    value = JsonUtility.FromJson(sFact.JsonValue, type);
+                }
                 
                 var method = typeof(FactDictionary).GetMethod("SetFact")!.MakeGenericMethod(type);
                 method.Invoke(factsDictionary, new object[] { sFact.key, value, FactDictionary.FactPersistence.Persistent });
+                
             }
+            
+            
         }
         
         

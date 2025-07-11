@@ -49,9 +49,9 @@ namespace TheFundation.Runtime
             GameManager.DeleteSaveSlot(slot);
         }
 
-        protected void SlotExist(int slot)
+        protected bool SlotExist(int slot)
         {
-            GameManager.HasSaveInSlot(slot);
+            return GameManager.HasSaveInSlot(slot);
         }
         
         // Localization

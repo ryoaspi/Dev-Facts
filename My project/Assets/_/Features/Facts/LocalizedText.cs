@@ -43,6 +43,15 @@ namespace TheFundation.Runtime
             _localizationKey = key;
             UpdateText();
         }
+
+        public void SetFormattedText(params object[] args)
+        {
+            if (!string.IsNullOrEmpty(_localizationKey))
+            {
+                string format = LocalizationManager.m_Instance.GetText(_localizationKey);
+                _text.text = string.Format(format, args);
+            }
+        }
         
         #endregion
         

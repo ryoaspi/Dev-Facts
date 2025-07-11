@@ -9,14 +9,6 @@ namespace TheFundation.Runtime
         {
             RefreshSlotsUI();
         }
-
-
-
-
-        void Update()
-        {
-        
-        }
         
         #endregion
         
@@ -27,11 +19,29 @@ namespace TheFundation.Runtime
         {
             GameManager.LoadGameFromSlot(slot);
             
+            // Lecture des Facts
+            if (GameManager.m_gameFacts.TryGetFact("playerName", out string name) &&
+                GameManager.m_gameFacts.TryGetFact("gold", out int gold) &&
+                GameManager.m_gameFacts.TryGetFact("Race", out string race))
+            {
+                Debug.Log($"[Slot {slot}] Nom : {name}, Gold : {gold}, Race : {race}");
+            }
+
+            else
+            {
+                Debug.LogWarning($"[Slot {slot}] Données incomplètes ou absentes après chargement. ");
+            }
+            
         }
 
         public void OnSaveSlot(int slot)
         {
             GameManager.SaveGameToSlot(slot);
+        }
+        
+        public void OnDeleteSlot(int slot)
+        {
+            GameManager.DeleteSaveSlot(slot);
         }
         
         #endregion

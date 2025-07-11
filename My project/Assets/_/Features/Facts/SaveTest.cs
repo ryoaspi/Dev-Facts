@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace TheFundation.Runtime
@@ -9,6 +8,7 @@ namespace TheFundation.Runtime
         {
            SetFact("playerName", "Thomas", FactDictionary.FactPersistence.Persistent);
            SetFact("gold", 1234, FactDictionary.FactPersistence.Persistent);
+           SetFact("Race","Humain", FactDictionary.FactPersistence.Persistent);
 
            SaveToSlot(0);
            

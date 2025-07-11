@@ -1,7 +1,7 @@
 {
     "items": [
-        {"key": "slot", "value": "Slot"},
-        {"key": "exists", "value": "Exist"},
+        {"key": "slot", "value": "slot {0} : {1}"},
+        {"key": "exists", "value": "Exists"},
         {"key": "empty", "value": "Empty"},
         {"key": "load", "value": "Load"},
         {"key": "save", "value": "Save"},
