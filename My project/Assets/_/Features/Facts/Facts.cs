@@ -12,6 +12,7 @@ namespace TheFundation.Runtime.Data
         {
             Value = value;
             IsPersistent = isPersistent;
+            ValueType = value.GetType();
         }
         
         public object GetObjectValue() => Value;

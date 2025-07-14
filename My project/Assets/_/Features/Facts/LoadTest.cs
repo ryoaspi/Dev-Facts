@@ -7,7 +7,7 @@ namespace TheFundation.Runtime
         
         void Start()
         {
-            LoadFromSlot(4);
+            LoadFromSlot(0);
             
             string name = GetFact<string>("playerName");
             int gold = GetFact<int>("gold");

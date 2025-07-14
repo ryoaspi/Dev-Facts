@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace TheFundation.Runtime
 {
     public class LocalizationManager : MonoBehaviour
@@ -31,6 +32,7 @@ namespace TheFundation.Runtime
             {
                 Destroy(gameObject);
             }
+            
         }
 
         #endregion
