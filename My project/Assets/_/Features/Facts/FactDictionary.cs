@@ -88,6 +88,6 @@ namespace TheFundation.Runtime
         private Dictionary<string, IFact> _facts = new();
         
         #endregion
-        
+
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TheFundation.Runtime
 {
@@ -17,6 +18,10 @@ namespace TheFundation.Runtime
         {
             LocalizationManager.m_Instance.LoadLanguage("en");
             FactSaveSystem.LoadFromFile(m_gameFacts);
+            InputPlatformDetector.DetectInputScheme(Keyboard.current);
+            
+            var scheme = InputPlatformDetector.CurrentScheme.ToString();
+            m_gameFacts.SetFact("inputScheme", scheme, FactDictionary.FactPersistence.Normal);
         }
 
         void OnApplicationQuit()

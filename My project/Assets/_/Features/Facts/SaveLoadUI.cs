@@ -19,18 +19,18 @@ namespace TheFundation.Runtime
         {
             GameManager.LoadGameFromSlot(slot);
             
-            // Lecture des Facts
-            if (GameManager.m_gameFacts.TryGetFact("playerName", out string name) &&
-                GameManager.m_gameFacts.TryGetFact("gold", out int gold) &&
-                GameManager.m_gameFacts.TryGetFact("Race", out string race))
-            {
-                Debug.Log($"[Slot {slot}] Nom : {name}, Gold : {gold}, Race : {race}");
-            }
-
-            else
-            {
-                Debug.LogWarning($"[Slot {slot}] Données incomplètes ou absentes après chargement. ");
-            }
+            // // Lecture des Facts
+            // if (GameManager.m_gameFacts.TryGetFact("playerName", out string name) &&
+            //     GameManager.m_gameFacts.TryGetFact("gold", out int gold) &&
+            //     GameManager.m_gameFacts.TryGetFact("Race", out string race))
+            // {
+            //     Debug.Log($"[Slot {slot}] Nom : {name}, Gold : {gold}, Race : {race}");
+            // }
+            //
+            // else
+            // {
+            //     Debug.LogWarning($"[Slot {slot}] Données incomplètes ou absentes après chargement. ");
+            // }
             
         }
 
