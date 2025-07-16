@@ -9,6 +9,8 @@ namespace TheFundation.Runtime
         public string m_inputSchemeName;
         public List<InputIconMapping> m_icons = new();
         public List<InputTextMapping> m_texts = new();
+        
+        public List<ActionSpriteName> m_spriteNames = new();
     }
 
     [System.Serializable]
@@ -23,5 +25,12 @@ namespace TheFundation.Runtime
     {
         public string m_actionName; // Ex : "Jump"
         public string m_displayName; // Ex : "A" , "X", "Space", etc.
+    }
+    
+    [System.Serializable]
+    public class ActionSpriteName
+    {
+        public string m_actionName;
+        public string m_spriteName;
     }
 }

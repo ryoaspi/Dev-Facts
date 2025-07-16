@@ -43,10 +43,31 @@ namespace TheFundation.Runtime
         private void Refresh()
         {
             var manager = FindObjectOfType<InputIconManager>();
-            string label = manager.GetTextLabel(m_actionName);
+            string spriteName = manager.GetSpriteNameForAction(m_actionName);
             
-            m_textComponent.text = string.Format(format, label);
-            m_textComponent.text = string.Format(format, $"<sprite name=\"{label}\">");
+            string currentScheme = GameManager.m_gameFacts.GetFact<string>("InputScheme");
+
+            string spriteAssetPath = currentScheme switch
+            {
+                "XboxController" => "Asset/_/Content/Xbox Series/XboxSeriesX_A.png",
+                "PlayStationController" => "Asset/_/Content/PS5/PS5_Cross.png",
+                "Keyboard" => "Asset/_/Content/Keyboard & Mouse/Dark/Space_Key_Dark.png",
+            };
+            
+            TMP_SpriteAsset spriteAsset = Resources.Load<TMP_SpriteAsset>(spriteAssetPath);
+            if (spriteAsset != null)
+            {
+                m_textComponent.spriteAsset = spriteAsset;
+                m_textComponent.text = string.Format(format, $"<sprite name =\"{spriteName}\">");
+                
+            }
+
+            else
+            {
+                m_textComponent.text = $"[{m_actionName}]";
+                Debug.LogWarning($"SpriteAsset {spriteAssetPath} not found");
+            }
+            
         }
         
         #endregion

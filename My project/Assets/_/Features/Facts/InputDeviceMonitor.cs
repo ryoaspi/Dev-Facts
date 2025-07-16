@@ -13,7 +13,7 @@ namespace TheFundation.Runtime
             _isActive = true;
             _anyButtonPress = new InputAction(type : InputActionType.PassThrough, binding : "<Keyboard>/anyKey");
             _anyButtonPress.AddBinding("<Gamepad>/*"); // Attrape tout sur manette
-            _anyButtonPress.AddBinding("<Mouse>/leftButton"); // Attrape tout sur souris
+            _anyButtonPress.AddBinding("<Mouse>/*"); // Attrape tout sur souris
 
             _anyButtonPress.performed += OnAnyInput;
             _anyButtonPress.Enable();

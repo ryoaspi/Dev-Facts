@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace TheFundation.Runtime
 {
@@ -23,7 +21,9 @@ namespace TheFundation.Runtime
 
             _currentIconMap = new Dictionary<string, Sprite>();
             _currentTextMap = new Dictionary<string, string>();
-
+            
+            _currentSpriteNameMap = new Dictionary<string, string>();
+            
             if (set != null)
             {
                 foreach (var icon in  set.m_icons)
@@ -35,7 +35,13 @@ namespace TheFundation.Runtime
                 {
                     _currentTextMap[text.m_actionName] = text.m_displayName;
                 }
+
+                foreach (var mapping in set.m_spriteNames)
+                {
+                    _currentSpriteNameMap[mapping.m_actionName] = mapping.m_spriteName;
+                }
             }
+            
         }
 
         #endregion
@@ -52,6 +58,11 @@ namespace TheFundation.Runtime
         {
             return _currentTextMap.TryGetValue(actionName, out var label) ? label : "";
         }
+
+        public string GetSpriteNameForAction(string actionName)
+        {
+            return _currentSpriteNameMap.TryGetValue(actionName, out var spriteName) ? spriteName : "";
+        }
         #endregion
         
         
@@ -59,6 +70,7 @@ namespace TheFundation.Runtime
         
         private Dictionary<string, Sprite> _currentIconMap;
         private Dictionary<string, string> _currentTextMap;
+        private Dictionary<string, string> _currentSpriteNameMap;
         
         #endregion
     }
