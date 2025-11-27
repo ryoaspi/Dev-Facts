@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace TheFundation.Runtime
 {
@@ -29,6 +30,10 @@ namespace TheFundation.Runtime
         /// Accès direct au système de Facts V1.
         /// </summary>
         public FactDictionary Facts => GameManager.Facts;
+        
+        public bool m_debug { get => _debug; set => _debug = value; }
+        public bool m_warning { get => _warning; set => _warning = value; }
+        public bool m_error { get => _error; set => _error = value; }
 
         #endregion
 
@@ -155,6 +160,41 @@ namespace TheFundation.Runtime
         }
 
         #endregion
+        
+        
+        #region Debug
+        
+        protected void Info(string message, Object context = null)
+        {
+            if (!_debug) return;
+            Debug.Log($"<color=cyan> FROM: {this} | INFO: {message} </color>", context);
+        }
+   
+        protected void InfoInProgress(string message, Object context = null)
+        {
+            if (!_debug) return;
+            Debug.Log($"<color=orange> FROM: {this} | IN_PROGRESS: {message} </color>", context);
+        }
+        
+        protected void InfoDone(string message, Object context = null)
+        {
+            if (!_debug) return;
+            Debug.Log($"<color=green> FROM: {this} | DONE: {message} </color>", context);
+        }
+        
+        protected void Warning(string message, Object context = null)
+        {
+            if (!_warning) return;
+            Debug.LogWarning($"<color=yellow> FROM: {this} | WARNING: {message} </color>", context);
+        }
+
+        protected void Error(string message, Object context = null)
+        {
+            if (!_error) return;
+            Debug.LogError($"<color=red> FROM: {this} | ERROR: {message} </color>", context);
+        }
+        
+        #endregion
 
 
 
@@ -162,6 +202,13 @@ namespace TheFundation.Runtime
 
         [SerializeField] private TMP_Text m_label;
         [SerializeField] private TMP_Text m_description;
+        
+        [SerializeField, HideInInspector]
+        protected bool _debug;
+        [SerializeField, HideInInspector]
+        protected bool _warning;
+        [SerializeField, HideInInspector]
+        protected bool _error;
 
         #endregion
     }
