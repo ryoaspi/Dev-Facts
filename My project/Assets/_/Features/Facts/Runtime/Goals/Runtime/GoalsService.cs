@@ -53,7 +53,7 @@ namespace TheFundation.Runtime
 
         public static void ResetAllGoals()
         {
-            foreach (var goal in _collection.m_Goals)
+            foreach (var goal in _collection.m_goals)
             {
                 if (goal == null) continue;
                 ResetGoal(goal.m_Key);
@@ -89,14 +89,16 @@ namespace TheFundation.Runtime
             if (def.m_IsInstantGoal)
             {
                 MarkCompleted(key);
+                GoalEvents.RaiseGoalCompleted(key);
                 return;
             }
 
             AddProgress(key, amount);
+            int current = GetProgress(key);
             
             GoalEvents.RaiseGoalProgress(key, GetProgress(key));
 
-            if (GetProgress(key) >= def.m_TargetValue)
+            if (current >= def.m_TargetValue)
             {
                 MarkCompleted(key);
                 GoalEvents.RaiseGoalCompleted(key);

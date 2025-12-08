@@ -1,0 +1,37 @@
+{
+  "name": "com.ryoaspi.devfacts",
+  "version": "1.0.0",
+  "displayName": "Dev-Facts Framework (TheFundation)",
+  "description": "Framework Unity professionnel pour indés : système de Facts, sauvegarde, localisation, goals, goal-chains, versioning, settings, platformizer et services unifiés via FBehaviour.",
+  "unity": "2022.3",
+  "unityRelease": "0f1",
+
+  "author": {
+    "name": "Ryoaspi",
+    "url": "https://github.com/ryoaspi"
+  },
+
+  "dependencies": {
+    "com.unity.inputsystem": "1.6.1"
+  },
+
+  "documentationUrl": "https://github.com/ryoaspi/Dev-Facts",
+  "changelogUrl": "https://github.com/ryoaspi/Dev-Facts/releases",
+  "licensesUrl": "https://github.com/ryoaspi/Dev-Facts/blob/main/LICENSE",
+
+  "keywords": [
+    "framework",
+    "facts",
+    "save",
+    "localization",
+    "settings",
+    "platform",
+    "goal",
+    "quest",
+    "ui",
+    "indie",
+    "runtime"
+  ],
+
+  "type": "library"
+}

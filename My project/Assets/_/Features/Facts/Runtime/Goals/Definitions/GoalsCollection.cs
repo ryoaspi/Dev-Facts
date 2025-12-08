@@ -7,11 +7,11 @@ namespace TheFundation.Runtime
         menuName = "TheFundation/Goals/Goals Collection")]
     public class GoalsCollection : ScriptableObject
     {
-        public GoalDefinition[] m_Goals;
+        public GoalDefinition[] m_goals;
 
         public GoalDefinition Get(string key)
         {
-            foreach (var g in m_Goals)
+            foreach (var g in m_goals)
                 if (g != null && g.m_Key == key)
                     return g;
 

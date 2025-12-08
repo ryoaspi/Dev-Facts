@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace TheFundation.Runtime
@@ -9,6 +8,7 @@ namespace TheFundation.Runtime
         public static GameManager m_Instance { get; private set; }
         public static FactDictionary Facts { get; } = new();
         public const int _MaxSlots = 10;
+        public VersionDefinition m_versionDefinition;
 
         void Awake()
         {
@@ -30,6 +30,9 @@ namespace TheFundation.Runtime
             SettingsService.Initialize(_settingsDefinitions);
             
             GoalsService.Initialize(_Goals);
+            
+            VersionService.m_definition = m_versionDefinition;
+            VersionService.Initialize();
 
         }
 
