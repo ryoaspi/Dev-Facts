@@ -1,0 +1,17 @@
+{
+    "name": "CatsClicker.Runtime",
+    "rootNamespace": "CatsClicker.Runtime",
+    "references": [
+        "GUID:476fe10ca481cda4c8fba72a0f7c4667",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
