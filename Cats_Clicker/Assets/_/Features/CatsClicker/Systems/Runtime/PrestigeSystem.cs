@@ -9,6 +9,7 @@ namespace CatsClicker.Systems
         #region Publics
 
         public event Action m_OnPrestigeApplied;
+        public GoalChainDefinition m_tutorialChainDefinition;
 
         #endregion
 
@@ -68,6 +69,19 @@ namespace CatsClicker.Systems
             SetFact(CatsClickerFacts.m_croquettes, 0d, FactDictionary.FactPersistence.Normal);
             SetFact(CatsClickerFacts.m_poissons, 0d, FactDictionary.FactPersistence.Normal);
             SetFact(CatsClickerFacts.m_totalProductionPerSecond, 0d, FactDictionary.FactPersistence.Normal);
+            
+            // OBJECTIF : premier prestige
+            GoalChainService.NotifyChain("cc_tutorial_chain", m_tutorialChainDefinition, "cc_first_prestige", 1);
+            GoalsService.Notify("cc_first_prestige", 1);
+
+            // OBJECTIF : prestige total
+            int count = GetFact("cc_prestige_total", 0) + 1;
+            SetFact("cc_prestige_total", count, FactDictionary.FactPersistence.Persistent);
+            GoalsService.Notify("cc_prestige5", count);
+
+            // OBJECTIF : total poulets cumulés
+            GoalsService.Notify("cc_poulets10", (int)poulets);
+
 
             InfoDone($"Prestige applied. +{pouletsToGain} poulets (total: {poulets}).");
 

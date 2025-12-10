@@ -1,19 +1,49 @@
-using UnityEngine;
+using TheFundation.Runtime;
+using TMPro;
 
 namespace CatsClicker.Runtime
 {
-    public class UI_Resources : MonoBehaviour
+    public class UI_Resources : FBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        #region Publics
+
+        public TMP_Text m_CroquettesText;
+
+        #endregion
+
+
+        #region API Unity
+
+        private void Update()
         {
-        
+            _RefreshCroquettes();
         }
 
-        // Update is called once per frame
-        void Update()
+        #endregion
+
+
+        #region Utils (méthodes publics)
+
+        // Rien pour le moment
+
+        #endregion
+
+
+        #region Main Methods (méthodes private)
+
+        private void _RefreshCroquettes()
         {
-        
+            double croquettes = GetFact(CatsClickerFacts.m_croquettes, 0d);
+            m_CroquettesText.text = $"{croquettes:0}";
         }
+
+        #endregion
+
+
+        #region Private and Protected
+
+        // Aucun
+
+        #endregion
     }
 }

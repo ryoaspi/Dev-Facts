@@ -10,6 +10,8 @@ namespace CatsClicker.Systems
 
         [Header("Debug")]
         public bool m_LogEachTick = false;
+        
+        public GoalChainDefinition m_tutorialChainDefinition;
 
         #endregion
 
@@ -17,7 +19,7 @@ namespace CatsClicker.Systems
 
         private void Update()
         {
-            _TickProduction(Time.deltaTime);
+            TickProduction(Time.deltaTime);
         }
 
         #endregion
@@ -26,19 +28,19 @@ namespace CatsClicker.Systems
 
         public void Initialize()
         {
-            _InitializeInternal();
+            InitializeInternal();
         }
 
         #endregion
 
         #region Main Methods (méthodes private)
 
-        private void _InitializeInternal()
+        private void InitializeInternal()
         {
             Info("ResourceSystemCC initialized.");
         }
 
-        private void _TickProduction(float deltaTime)
+        private void TickProduction(float deltaTime)
         {
             if (deltaTime <= 0f)
             {
@@ -57,6 +59,10 @@ namespace CatsClicker.Systems
             croquettes += produced;
 
             SetFact(CatsClickerFacts.m_croquettes, croquettes, FactDictionary.FactPersistence.Normal);
+            
+            GoalsService.Notify("cc_collect_100", (int)croquettes);
+            GoalsService.Notify("cc_collect_1000", (int)croquettes);
+            GoalsService.Notify("cc_collect_10000", (int)croquettes);
 
             if (m_LogEachTick)
             {

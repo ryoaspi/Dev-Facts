@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12d28b9f62851b4eba9a7febf650458, type: 3}
+  m_Name: cc_tutorial
+  m_EditorClassIdentifier: TheFundation.Runtime::TheFundation.Runtime.GoalChainDefinition
+  m_ChainKey: cc_tutorial
+  m_steps:
+  - {fileID: 11400000, guid: f7d7d02b938ed004289c83c8b450be3a, type: 2}
+  - {fileID: 11400000, guid: f6c17192ea1392f4fa128262fbcf517e, type: 2}
+  - {fileID: 11400000, guid: 7be2a7d3f5e54dd4f82c7dc30b1a0024, type: 2}
+  - {fileID: 11400000, guid: 10b70662c9b75d14b8af36f3695d742f, type: 2}

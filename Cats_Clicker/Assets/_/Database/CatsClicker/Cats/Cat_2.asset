@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d8cf5aac12c9548a3c53ef6420c7ea, type: 3}
+  m_Name: Cat_2
+  m_EditorClassIdentifier: CatsClicker.Runtime::CatsClicker.Data.CatDefinition
+  m_catId: Cat_2
+  m_DisplayName: Cat
+  m_Rarity: 0
+  m_BaseProductionPerSecond: 0.5
+  m_BaseCost: 100
+  m_CostGrowthFactor: 1.15
+  m_LevelMultiplier: 1.15
+  m_MilestoneLevel10: 10
+  m_MilestoneLevel25: 25
+  m_MilestoneLevel50: 50
+  m_MilestoneMultiplier10: 2
+  m_MilestoneMultiplier25: 3
+  m_MilestoneMultiplier50: 5

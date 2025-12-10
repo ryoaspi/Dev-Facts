@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7637d9fda59d7b49891b0f764625f18, type: 3}
+  m_Name: CatsClickerGoalsCollection
+  m_EditorClassIdentifier: TheFundation.Runtime::TheFundation.Runtime.GoalsCollection
+  m_goals:
+  - {fileID: 11400000, guid: f7d7d02b938ed004289c83c8b450be3a, type: 2}
+  - {fileID: 11400000, guid: f6c17192ea1392f4fa128262fbcf517e, type: 2}
+  - {fileID: 11400000, guid: 8bc2c5d63162f5646b4c5c203cd1d080, type: 2}
+  - {fileID: 11400000, guid: 609629fbd3da3e4428eb44a26adc0dda, type: 2}
+  - {fileID: 11400000, guid: 10b70662c9b75d14b8af36f3695d742f, type: 2}
+  - {fileID: 11400000, guid: 7336fa5b2d59bca4b9615849da12e28d, type: 2}
+  - {fileID: 11400000, guid: 93b4b36fa2321fc4aa2eb6543310014d, type: 2}
+  - {fileID: 11400000, guid: 7f02c7a3f2a69e94a92c11846c8b953c, type: 2}
+  - {fileID: 11400000, guid: bd637320d4d795b45a18ec873c3708d1, type: 2}
+  - {fileID: 11400000, guid: 823dc3f412a55a940857915125cc157a, type: 2}
+  - {fileID: 11400000, guid: 3032d57eb67db024bb0848775b31aa3e, type: 2}
+  - {fileID: 11400000, guid: 60477f06eb18c8f48a0e02cc1996dacf, type: 2}
+  - {fileID: 11400000, guid: dfe611a1b9b1d9b47b08599d961d4c25, type: 2}
+  - {fileID: 11400000, guid: 730428c9c47175243b6f4b740285623a, type: 2}
+  - {fileID: 11400000, guid: d9d23e6eede3ad148be916f9b8c8d7a5, type: 2}
+  - {fileID: 11400000, guid: 7b19018a36c810c4ba15465dd39729b4, type: 2}
+  - {fileID: 11400000, guid: f377488342b8194449359517eb0a0672, type: 2}
+  - {fileID: 11400000, guid: 7be2a7d3f5e54dd4f82c7dc30b1a0024, type: 2}
+  - {fileID: 11400000, guid: caeb6df61d0e4d747aa68bc965031220, type: 2}

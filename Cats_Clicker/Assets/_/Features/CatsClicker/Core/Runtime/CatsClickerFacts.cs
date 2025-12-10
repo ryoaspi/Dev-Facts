@@ -28,6 +28,8 @@ namespace CatsClicker.Runtime
         {
             return $"cc_upgrade_{upgradeId}_level";
         }
+        
+        public const string m_eventProductionMultiplier = "cc_event_production_multi";
 
         #endregion
     }

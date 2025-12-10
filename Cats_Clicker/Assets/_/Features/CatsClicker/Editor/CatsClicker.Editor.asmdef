@@ -1,0 +1,19 @@
+{
+    "name": "CatsClicker.Editor",
+    "rootNamespace": "CatsClicker.Editor",
+    "references": [
+        "GUID:476fe10ca481cda4c8fba72a0f7c4667",
+        "GUID:f08e638a42b499343ad01acf0b2a8897"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

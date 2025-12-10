@@ -1,6 +1,35 @@
 {
-    "version": 0,
+    "version": 1,
     "name": "CatsClicker",
-    "maps": [],
+    "maps": [
+        {
+            "name": "Player",
+            "id": "9e3cc19c-bc26-4136-b853-8e19d454d352",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "d49c28e9-f92b-426d-98ab-110d6df1fd8e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "38065c34-1ef2-4f43-82fc-0abf40e3600a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
     "controlSchemes": []
 }

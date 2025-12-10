@@ -23,5 +23,19 @@ namespace TheFundation.Runtime
         [Header("Goal Settings")]
         public bool m_IsInstantGoal = false; // ex : “Talk to NPC”
         public int m_TargetValue = 1;        // ex : collect 10 coins
+        
+        [Header("Reward")]
+        public RewardType m_RewardType = RewardType.None;
+        public double m_rewardValue = 0f;
+    }
+
+    public enum RewardType
+    {
+        None,
+        Croquettes,
+        Poissons,
+        Poulets,
+        UpgradePoint,
+        PermanentBonus
     }
 }

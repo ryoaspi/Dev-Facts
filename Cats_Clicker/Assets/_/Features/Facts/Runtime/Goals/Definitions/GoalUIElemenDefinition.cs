@@ -4,7 +4,7 @@ namespace TheFundation.Runtime
 {
     public class GoalUIElemenDefinition : MonoBehaviour
     {
-        [CreateAssetMenu(fileName = "GoalUIElemenDefinition", menuName = "The Fundation/ Goals/ UI Element Definition")]
+        [CreateAssetMenu(fileName = "GoalUIElemenDefinition", menuName = "TheFundation/ Goals/ UI Element Definition")]
         public class GoalUIElementDefinition : ScriptableObject
         {
             [Header("Goal to Display")] 
